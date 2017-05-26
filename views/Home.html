@@ -1,0 +1,22 @@
+
+
+<div class="row" ng-controller="listCtrl as list" >
+  <div class="row" >
+    <a href="#/Quiz">  <div  class="row_cell" ng-repeat="all in list.dataservice.CatList" ng-click="list.show(all.id); list.Quizfact.start()" >
+
+        <img src="img/java.png" alt="java icon" />
+
+      <h4>
+         {{all.text}}
+      </h4>
+
+      </div>
+</a>
+
+
+    </div>
+
+
+
+
+  </div>

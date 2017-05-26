@@ -1,0 +1,53 @@
+
+
+  <div class="container" ng-controller="quizCtrl as list"  >
+
+    <div class="row "ng-hide="list.finalise" >
+
+        <div class="col-sm-10 col-sm-offset-1" >
+            <div class="btn-toolbar">
+
+
+                <button class="btn " ng-repeat="btn in list.Quizfact.databyid" ng-class="{'color-hover':btn.selected!=null}"></button>
+
+            </div>
+        </div>
+
+          {{list.Quizfact.time}}
+       <div class="col-sm-10 col-sm-offset-1 conta" >
+          <h3>{{list.Quizfact.databyid[list.activequestion].text}}</h3>
+
+       </div>
+        <div class="col-sm-10 col-sm-offset-1 conta"  >
+        <div class="col-sm-6" ng-repeat="answer in list.Quizfact.databyid[list.activequestion].Possibilities">
+       <h4 class="answer" ng-click="list.selectAnswer($index)" ng-class="{'color-hover':$index===list.Quizfact.databyid[list.activequestion].selected}">{{answer.answer}}</h4>
+        </div>
+
+
+
+        <div class="col-sm-12">
+
+            <button class="btn btn-warning b" ng-click="list.nextquestion($index);list.Quizfact.start()">Continue</button>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+  <div class="col-sm-12" ng-show="list.finalise">
+                   <div class="row">
+                       <div class="col-xs-12">
+                           <h3>Are you sure you want to submit your answers?</h3>
+                           <a href="#/result" class="btn btn-success" ng-click="list.finaliseAnswers()">yes</a>
+
+                           <button class="btn btn-danger" ng-click="list.finalise = false">No</button>
+                       </div>
+                   </div>
+               </div>
+    </div>
